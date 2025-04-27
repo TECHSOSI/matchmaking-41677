@@ -15,22 +15,25 @@
 
 ### Association
 
-* has_many :items
+* has_many :recruitments
 * has_many :orders
 
-## items table
+## recruitments table
 
-| Column                              | Type       | Options                        |
-|-------------------------------------|------------|--------------------------------|
-| product_name                        | string     | null: false                    |
-| product_information                 | text       | null: false                    |
-| category︎_id                         | integer    | null: false                    |
-| condition︎_id                        | integer    | null: false                    |
-| shipping_cost︎_id                    | integer    | null: false                    |
-| prefecture︎_id                       | integer    | null: false                    |
-| shipping_date︎_id                    | integer    | null: false                    |
-| price                               | integer    | null: false                    |
-| user                                | references | null: false, foreign_key: true |
+| Column                     | Type       | Options                        |
+|----------------------------|------------|--------------------------------|
+| date                       | date       | null: false                    |
+| event_time_id              | integer    | null: false                    |
+| stadium_id                 | integer    | null: false                    |
+| home_name                  | string     | null: false                    |
+| manager                    | string     | null: false                    |
+| home_level_id              | integer    | null: false                    |
+| home_URL                   | text       | null: false                    |
+| umpire_id                  | integer    | null: false                    |
+| fee                        | integer    | null: false                    |
+| progress_id                | integer    | null: false                    |
+| home_message               | text       | null: false                    |
+| user                       | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -42,25 +45,24 @@
 | Column                           | Type       | Options                        |
 |----------------------------------|------------|--------------------------------|
 | user                             | references | null: false, foreign_key: true |
-| item                             | references | null: false, foreign_key: true |
+| recruitment                      | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- belongs_to :item
-- has_one :buyer
+- belongs_to :recruitment
+- has_one :application
 
-## buyers table
+## applications table
 
 | Column            | Type       | Options                        |
 |-------------------|------------|--------------------------------|
-| post_code         | integer    | null: false                    |
-| prefecture_id     | integer    | null: false                    |
-| city              | string     | null: false                    |
-| street_address    | string     | null: false                    |
-| building          | string     |                                |
-| telephone         | string     | null: false                    |
+| away_name         | string     | null: false                    |
+| away_level_id     | integer    | null: false                    |
+| away_URL          | text       | null: false                    |
+| away_message      | text       | null: false                    |
 | order             | references | null: false, foreign_key: true |
+
 
 ### Association
 
